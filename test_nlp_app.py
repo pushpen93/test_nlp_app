@@ -3,23 +3,18 @@ import streamlit as st
 def main():
     # Set up the layout
     st.title("Resume Information Extractor")
-    col1, col2 = st.columns([1, 3])  # Adjust the width ratio as needed
+
+    # Upload resume in the sidebar
+    uploaded_file = st.sidebar.file_uploader("Upload a resume", type=["pdf", "docx"])
     
-    # Left column for title
-    with col1:
-        pass  # Nothing to display here, just keeping the space
-    
-    # Right column for file upload and review
-    with col2:
-        uploaded_file = st.file_uploader("Upload a resume", type=["pdf", "docx"])
-        if uploaded_file:
-            st.write("File uploaded successfully!")
-            # Process the uploaded file and extract information
-            
-            # Display extracted information
-            st.write("Extracted Information:")
-            # Display extracted information here
+    if uploaded_file:
+        # Display uploaded resume over the entire screen
+        st.title("Uploaded Resume")
+        st.write("File uploaded successfully!")
+        # Display extracted information
+        st.title("Extracted Information:")
+        # Process the uploaded file and extract information
+        # Display extracted information here
 
 if __name__ == "__main__":
     main()
-
